@@ -4,6 +4,7 @@
 import ScoreCard from "./ScoreCard";
 import ActivityCard from "./ActivityCard";
 import DailySummary from "./DailySummary";
+import ActivityForm from "../activity/ActivityForm";
 
 export default function Dashboard() {
   return (
@@ -56,6 +57,11 @@ export default function Dashboard() {
           message="Your day was productive. Keep maintaining this routine."
         />
       </section>
+
+      {/* فرم ثبت فعالیت روزانه */}
+      <div className="mt-8">
+         <ActivityForm />
+      </div>
 
     </main>
   );
