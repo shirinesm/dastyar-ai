@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ActivityProvider } from "../context/ActivityContext";
 
 // تنظیم فونت اصلی پروژه
 const geistSans = Geist({
@@ -27,7 +28,11 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+
+        <ActivityProvider>
+         {children}
+       </ActivityProvider>
+
       </body>
     </html>
   );
