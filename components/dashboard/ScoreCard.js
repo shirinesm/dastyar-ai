@@ -11,7 +11,7 @@ export default function ScoreCard({
 
   return (
 
-    <div className="rounded-3xl border border-[#E7DED2] bg-[#FFFCF7] p-6">
+    <div className="rounded-3xl bg-[#FFFCF7] p-6 shadow-sm">
 
 
       <p className="text-sm text-[#78716C]">

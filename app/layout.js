@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ActivityProvider } from "../context/ActivityContext";
+import { ReminderProvider } from "../context/ReminderContext";
 
 // تنظیم فونت اصلی پروژه
 const geistSans = Geist({
@@ -29,9 +30,17 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
 
-        <ActivityProvider>
+        
+       <ActivityProvider>
+
+        <ReminderProvider>
+
          {children}
+
+        </ReminderProvider>
+
        </ActivityProvider>
+       
 
       </body>
     </html>

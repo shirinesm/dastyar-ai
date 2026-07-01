@@ -10,7 +10,7 @@ export default function ActivityCard({
 
   return (
 
-    <div className="rounded-3xl border border-[#E7DED2] bg-[#FFFCF7] p-6">
+    <div className="rounded-3xl bg-[#FFFCF7] p-6 shadow-sm">
 
 
       <div className="flex items-start justify-between">
@@ -21,7 +21,7 @@ export default function ActivityCard({
         </h3>
 
 
-        <span className="rounded-full bg-[#E9F5D8] px-3 py-1 text-xs font-medium text-[#65A30D]">
+        <span className="rounded-full bg-[#EDE9FE] px-3 py-1 text-xs font-medium text-[#65A30D]">
           {status}
         </span>
 

@@ -1,6 +1,7 @@
-// فرم ثبت فعالیت روزانه
-// مسئول دریافت اطلاعات فعالیت از کاربر است.
-// داده‌ها توسط Activity Context مدیریت می‌شوند.
+// فرم ایجاد Reminder
+// در نسخه Demo فقط State فرم را مدیریت می‌کند.
+// ذخیره اطلاعات از طریق Reminder Context انجام می‌شود.
+// در آینده به Reminder API متصل خواهد شد.
 
 
 "use client";
@@ -12,26 +13,28 @@ import { useState } from "react";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
 
-import useActivities from "../../hooks/useActivities";
+
+import useReminders from "../../hooks/useReminders";
 
 
 
-export default function ActivityForm() {
+export default function ReminderForm() {
 
 
 
   const {
-    addActivity
-  } = useActivities();
+    addReminder,
+  } = useReminders();
 
 
 
 
-  const [activity, setActivity] = useState({
+
+  const [reminder, setReminder] = useState({
 
     title: "",
 
-    duration: "",
+    time: "",
 
   });
 
@@ -41,17 +44,18 @@ export default function ActivityForm() {
 
 
 
+  // مدیریت تغییر Input ها
   const handleChange = (event) => {
 
 
     const {
       name,
-      value
+      value,
     } = event.target;
 
 
 
-    setActivity((previous) => ({
+    setReminder((previous) => ({
 
       ...previous,
 
@@ -68,7 +72,7 @@ export default function ActivityForm() {
 
 
 
-
+  // ثبت Reminder
   const handleSubmit = (event) => {
 
 
@@ -76,7 +80,7 @@ export default function ActivityForm() {
 
 
 
-    if (!activity.title || !activity.duration) {
+    if (!reminder.title || !reminder.time) {
 
       return;
 
@@ -86,15 +90,13 @@ export default function ActivityForm() {
 
 
 
-    addActivity({
+    addReminder({
 
       id: Date.now(),
 
-      title: activity.title,
+      title: reminder.title,
 
-      duration: activity.duration,
-
-      status: "Completed",
+      time: reminder.time,
 
     });
 
@@ -102,16 +104,18 @@ export default function ActivityForm() {
 
 
 
-    setActivity({
+
+    setReminder({
 
       title: "",
 
-      duration: "",
+      time: "",
 
     });
 
 
   };
+
 
 
 
@@ -125,28 +129,26 @@ export default function ActivityForm() {
       onSubmit={handleSubmit}
 
       className="
-        flex
-        flex-col
-        gap-5
         rounded-3xl
         border
         border-[#E7DED2]
         bg-[#FFFCF7]
         p-6
+        flex
+        flex-col
+        gap-5
       "
 
     >
 
 
 
-      {/* عنوان فرم */}
-
       <div>
 
 
         <h2 className="text-lg font-semibold text-[#292524]">
 
-          Add New Activity
+          Create Reminder
 
         </h2>
 
@@ -154,7 +156,7 @@ export default function ActivityForm() {
 
         <p className="mt-1 text-sm text-[#78716C]">
 
-          Track your daily progress
+          Never miss an important activity.
 
         </p>
 
@@ -168,13 +170,13 @@ export default function ActivityForm() {
 
       <Input
 
-        label="Activity Name"
+        label="Reminder Title"
 
         name="title"
 
-        placeholder="Example: Reading"
+        placeholder="Example: Read book"
 
-        value={activity.title}
+        value={reminder.title}
 
         onChange={handleChange}
 
@@ -187,15 +189,13 @@ export default function ActivityForm() {
 
       <Input
 
-        label="Duration (minutes)"
+        label="Reminder Time"
 
-        name="duration"
+        name="time"
 
-        type="number"
+        placeholder="Example: 18:00"
 
-        placeholder="Example: 30"
-
-        value={activity.duration}
+        value={reminder.time}
 
         onChange={handleChange}
 
@@ -206,13 +206,11 @@ export default function ActivityForm() {
 
 
 
-
       <Button type="submit">
 
-        Save Activity
+        Save Reminder
 
       </Button>
-
 
 
 
@@ -220,6 +218,5 @@ export default function ActivityForm() {
     </form>
 
   );
-
 
 }
