@@ -1,31 +1,38 @@
-// Component نمایش خلاصه عملکرد روزانه کاربر
+// خلاصه عملکرد روزانه کاربر
+// نمایش تعداد فعالیت‌ها و پیام انگیزشی.
 
-import Card from "../ui/Card";
 
 export default function DailySummary({
   completedActivities,
   message,
 }) {
+
   return (
-    <Card>
-      <div className="flex flex-col gap-4">
 
-        {/* عنوان بخش */}
-        <h2 className="text-xl font-semibold text-gray-900">
-          Today's Summary
-        </h2>
+    <div className="rounded-3xl border border-[#E7DED2] bg-[#F3EBDD] p-6">
 
-        {/* تعداد فعالیت‌های انجام شده */}
-        <p className="text-gray-600">
-          Completed Activities: {completedActivities}
-        </p>
 
-        {/* پیام خلاصه */}
-        <p className="rounded-xl bg-gray-50 p-4 text-sm text-gray-700">
+      <h2 className="text-xl font-semibold text-[#292524]">
+        Today's Summary
+      </h2>
+
+
+      <p className="mt-3 text-sm text-[#78716C]">
+        Completed Activities: {completedActivities}
+      </p>
+
+
+      <div className="mt-5 rounded-2xl bg-[#FFFCF7] p-4">
+
+        <p className="text-sm text-[#292524]">
           {message}
         </p>
 
       </div>
-    </Card>
+
+
+    </div>
+
   );
+
 }

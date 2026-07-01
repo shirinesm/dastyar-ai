@@ -1,32 +1,41 @@
-// Component نمایش یک فعالیت روزانه کاربر
+// کارت نمایش فعالیت روزانه
+// مسئول نمایش عنوان، مدت زمان و وضعیت Activity است.
 
-import Card from "../ui/Card";
 
 export default function ActivityCard({
   title,
   duration,
   status,
 }) {
-  return (
-    <Card>
-      <div className="flex flex-col gap-3">
 
-        {/* عنوان فعالیت */}
-        <h3 className="text-lg font-semibold text-gray-900">
+  return (
+
+    <div className="rounded-3xl border border-[#E7DED2] bg-[#FFFCF7] p-6">
+
+
+      <div className="flex items-start justify-between">
+
+
+        <h3 className="text-lg font-semibold text-[#292524]">
           {title}
         </h3>
 
-        {/* مدت زمان فعالیت */}
-        <p className="text-sm text-gray-600">
-          Duration: {duration}
-        </p>
 
-        {/* وضعیت فعالیت */}
-        <span className="w-fit rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
+        <span className="rounded-full bg-[#E9F5D8] px-3 py-1 text-xs font-medium text-[#65A30D]">
           {status}
         </span>
 
+
       </div>
-    </Card>
+
+
+      <p className="mt-4 text-sm text-[#78716C]">
+        Duration: {duration}
+      </p>
+
+
+    </div>
+
   );
+
 }

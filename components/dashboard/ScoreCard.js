@@ -1,30 +1,36 @@
-// Component نمایش امتیازهای روزانه کاربر
+// نمایش شاخص‌های عملکرد کاربر
+// این Component فقط مسئول نمایش یک Metric است.
+// داده از بیرون دریافت می‌شود.
 
-import Card from "../ui/Card";
 
 export default function ScoreCard({
   title,
   value,
   description,
 }) {
+
   return (
-    <Card>
-      <div className="flex flex-col gap-3">
-        {/* عنوان شاخص */}
-        <h3 className="text-sm text-gray-500">
-          {title}
-        </h3>
 
-        {/* مقدار اصلی */}
-        <p className="text-4xl font-bold text-gray-900">
-          {value}
-        </p>
+    <div className="rounded-3xl border border-[#E7DED2] bg-[#FFFCF7] p-6">
 
-        {/* توضیح کوتاه */}
-        <p className="text-sm text-gray-600">
-          {description}
-        </p>
-      </div>
-    </Card>
+
+      <p className="text-sm text-[#78716C]">
+        {title}
+      </p>
+
+
+      <h3 className="mt-4 text-4xl font-semibold text-[#292524]">
+        {value}
+      </h3>
+
+
+      <p className="mt-3 text-sm text-[#78716C]">
+        {description}
+      </p>
+
+
+    </div>
+
   );
+
 }
