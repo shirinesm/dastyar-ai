@@ -1,12 +1,15 @@
+"use client";
+
 // کارت نمایش Reminder
-// طراحی هماهنگ با Design System پروژه
+// Premium Design + Motion Version
+
+import { motion } from "framer-motion";
 
 import {
   Bell,
   Clock3,
   ArrowUpRight,
 } from "lucide-react";
-import Card from "../ui/Card";
 
 export default function ReminderCard({
 
@@ -18,67 +21,136 @@ export default function ReminderCard({
 
   return (
 
-    <Card
-  className="group"
->
+    <motion.div
 
-      {/* Header */}
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
 
-      <div className="flex items-start justify-between">
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
 
-        <div className="flex items-start gap-4">
+      whileHover={{
+        y: -6,
+      }}
 
-          <div
+      transition={{
+        duration: .35,
+      }}
+
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-[28px]
+        border
+        border-white/60
+        bg-white/70
+        p-6
+        backdrop-blur-xl
+        shadow-[0_12px_35px_rgba(0,0,0,.05)]
+      "
+
+    >
+
+      {/* Glow */}
+
+      <div
+        className="
+          absolute
+          -right-12
+          -top-12
+          h-36
+          w-36
+          rounded-full
+          bg-violet-100/40
+          blur-3xl
+          transition
+          duration-500
+          group-hover:scale-150
+        "
+      />
+
+
+
+      <div className="relative flex items-start gap-4">
+
+        <motion.div
+
+          whileHover={{
+            rotate: 12,
+            scale: 1.08,
+          }}
+
+          className="
+            flex
+            h-14
+            w-14
+            items-center
+            justify-center
+            rounded-2xl
+            bg-violet-100
+            text-violet-600
+          "
+
+        >
+
+          <Bell size={22} />
+
+        </motion.div>
+
+
+
+
+
+        <div className="flex-1">
+
+          <h3
             className="
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-2xl
-              bg-[#EEEAFE]
-              text-[#7C6CF2]
+              text-lg
+              font-semibold
+              text-[#2C2825]
             "
           >
 
-            <Bell size={20} />
+            {title}
 
-          </div>
+          </h3>
 
 
 
-          <div>
+          <div
+            className="
+              mt-4
+              inline-flex
+              items-center
+              gap-2
+              rounded-xl
+              bg-[#F7F3EE]
+              px-3
+              py-2
+            "
+          >
 
-            <h3
+            <Clock3
+              size={16}
+              className="text-[#8C837B]"
+            />
+
+            <span
               className="
-                text-lg
-                font-semibold
-                text-[#2C2825]
-              "
-            >
-
-              {title}
-
-            </h3>
-
-
-
-            <div
-              className="
-                mt-3
-                flex
-                items-center
-                gap-2
                 text-sm
-                text-[#7D746D]
+                font-medium
+                text-[#6E655E]
               "
             >
-
-              <Clock3 size={16} />
 
               {time}
 
-            </div>
+            </span>
 
           </div>
 
@@ -88,14 +160,17 @@ export default function ReminderCard({
 
 
 
+
+
       <div
         className="
-          mt-6
+          relative
+          mt-7
           flex
           items-center
           justify-between
           border-t
-          border-[#EFE8DE]
+          border-[#EEE6DB]
           pt-5
         "
       >
@@ -103,30 +178,38 @@ export default function ReminderCard({
         <p
           className="
             text-sm
+            leading-6
             text-[#7D746D]
           "
         >
 
-          Stay consistent with your routine.
+          Never miss what matters most.
 
         </p>
 
 
 
-        <ArrowUpRight
-          size={18}
-          className="
-            text-[#B7AEA4]
-            transition-transform
-            duration-300
-            group-hover:translate-x-1
-            group-hover:-translate-y-1
-          "
-        />
+
+
+        <motion.div
+
+          whileHover={{
+            x: 4,
+            y: -4,
+          }}
+
+        >
+
+          <ArrowUpRight
+            size={18}
+            className="text-[#B7AEA4]"
+          />
+
+        </motion.div>
 
       </div>
 
-      </Card>
+    </motion.div>
 
   );
 

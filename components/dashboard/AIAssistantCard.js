@@ -1,30 +1,54 @@
-// کارت دستیار هوشمند
-// Premium AI Widget
+"use client";
+
+// کارت دستیار هوشمند Dastyar
+// Premium AI Panel
+
+import { motion } from "framer-motion";
 
 import {
   Sparkles,
   Brain,
   ArrowRight,
-  CircleCheck,
-  Activity,
+  TrendingUp,
 } from "lucide-react";
-
-import Card from "../ui/Card";
 
 export default function AIAssistantCard() {
 
   return (
 
-    <Card
+    <motion.section
+
+      initial={{
+        opacity: 0,
+        y: 25,
+      }}
+
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+
+      transition={{
+        duration: .45,
+      }}
+
+      whileHover={{
+        y: -4,
+      }}
+
       className="
         relative
         overflow-hidden
-        border-[#E5DDFE]
+        rounded-[30px]
         bg-gradient-to-br
-        from-[#F8F5FF]
-        via-[#FCFBFF]
-        to-[#F2EEFD]
+        from-[#8C7AF8]
+        via-[#7866F1]
+        to-[#6555EA]
+        p-7
+        text-white
+        shadow-[0_25px_60px_rgba(109,93,251,.35)]
       "
+
     >
 
       {/* Glow */}
@@ -32,13 +56,26 @@ export default function AIAssistantCard() {
       <div
         className="
           absolute
-          -right-10
-          -top-10
-          h-44
-          w-44
+          -right-16
+          -top-16
+          h-56
+          w-56
           rounded-full
-          bg-violet-300/20
-          blur-[70px]
+          bg-white/10
+          blur-3xl
+        "
+      />
+
+      <div
+        className="
+          absolute
+          -left-12
+          bottom-0
+          h-40
+          w-40
+          rounded-full
+          bg-white/10
+          blur-3xl
         "
       />
 
@@ -50,71 +87,68 @@ export default function AIAssistantCard() {
 
         <div className="flex items-center justify-between">
 
-          <div>
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+            "
+          >
 
             <div
               className="
-                inline-flex
+                flex
+                h-14
+                w-14
                 items-center
-                gap-2
-                rounded-full
-                bg-white
-                px-4
-                py-2
-                text-sm
-                font-medium
-                text-[#7C6CF2]
+                justify-center
+                rounded-2xl
+                bg-white/15
+                backdrop-blur-lg
               "
             >
 
-              <Sparkles size={16} />
-
-              AI Assistant
+              <Brain size={26} />
 
             </div>
 
 
 
-            <h2
-              className="
-                mt-5
-                text-2xl
-                font-semibold
-                leading-tight
-                text-[#2C2825]
-              "
-            >
+            <div>
 
-              Your productivity
-              <br />
-              looks great today.
+              <p
+                className="
+                  text-sm
+                  text-white/70
+                "
+              >
 
-            </h2>
+                Dastyar AI
 
-          </div>
+              </p>
 
+              <h2
+                className="
+                  mt-1
+                  text-xl
+                  font-semibold
+                "
+              >
 
+                Productivity Insight
 
+              </h2>
 
-
-          <div
-            className="
-              flex
-              h-14
-              w-14
-              items-center
-              justify-center
-              rounded-2xl
-              bg-white
-            "
-          >
-
-            <Brain
-              size={26}
-              className="text-[#7C6CF2]"
-            />
+            </div>
 
           </div>
+
+
+
+          <Sparkles
+            size={22}
+            className="opacity-80"
+          />
 
         </div>
 
@@ -122,31 +156,58 @@ export default function AIAssistantCard() {
 
 
 
-        <p
-          className="
-            mt-6
-            text-sm
-            leading-7
-            text-[#6B625C]
-          "
-        >
+        {/* Message */}
 
-          You completed your most important tasks.
-          The best next action is scheduling
-          a short learning session.
+        <div className="mt-8">
 
-        </p>
+          <h3
+            className="
+              text-3xl
+              font-bold
+              leading-tight
+            "
+          >
 
+            Your focus is improving.
 
-
+          </h3>
 
 
-        {/* Stats */}
+
+          <p
+            className="
+              mt-5
+              text-sm
+              leading-7
+              text-white/80
+            "
+          >
+
+            You completed your most important tasks today.
+            Based on your activity history,
+            scheduling one additional
+            30-minute deep work session
+            could increase tomorrow's productivity.
+
+          </p>
+
+        </div>
+
+
+
+
+
+        {/* Recommendation */}
 
         <div
           className="
-            mt-7
-            space-y-3
+            mt-8
+            rounded-2xl
+            border
+            border-white/15
+            bg-white/10
+            p-5
+            backdrop-blur-lg
           "
         >
 
@@ -154,32 +215,20 @@ export default function AIAssistantCard() {
             className="
               flex
               items-center
-              justify-between
-              rounded-2xl
-              bg-white/70
-              px-4
-              py-3
+              gap-3
             "
           >
 
-            <div className="flex items-center gap-3">
+            <TrendingUp size={20} />
 
-              <Activity
-                size={18}
-                className="text-violet-500"
-              />
+            <span
+              className="
+                text-sm
+                font-medium
+              "
+            >
 
-              <span className="text-sm">
-
-                Productivity
-
-              </span>
-
-            </div>
-
-            <span className="font-semibold">
-
-              92%
+              AI Recommendation
 
             </span>
 
@@ -187,42 +236,19 @@ export default function AIAssistantCard() {
 
 
 
-
-
-          <div
+          <p
             className="
-              flex
-              items-center
-              justify-between
-              rounded-2xl
-              bg-white/70
-              px-4
-              py-3
+              mt-3
+              text-sm
+              leading-7
+              text-white/80
             "
           >
 
-            <div className="flex items-center gap-3">
+            Finish one pending task before 8:00 PM
+            to keep your productivity streak alive.
 
-              <CircleCheck
-                size={18}
-                className="text-emerald-500"
-              />
-
-              <span className="text-sm">
-
-                AI Confidence
-
-              </span>
-
-            </div>
-
-            <span className="font-semibold">
-
-              96%
-
-            </span>
-
-          </div>
+          </p>
 
         </div>
 
@@ -230,38 +256,43 @@ export default function AIAssistantCard() {
 
 
 
-        <button
+        {/* Button */}
+
+        <motion.button
+
+          whileHover={{
+            scale: 1.04,
+          }}
+
+          whileTap={{
+            scale: .98,
+          }}
+
           className="
             mt-8
             inline-flex
             items-center
-            gap-2
+            gap-3
             rounded-2xl
-            bg-gradient-to-r
-            from-[#8D7EF8]
-            to-[#7262EE]
+            bg-white
             px-5
             py-3
-            text-sm
             font-medium
-            text-white
-            shadow-lg
-            shadow-violet-200
-            transition-all
-            duration-300
-            hover:-translate-y-1
+            text-[#6555EA]
+            transition
           "
+
         >
 
-          Generate New Insight
+          Open AI Assistant
 
           <ArrowRight size={18} />
 
-        </button>
+        </motion.button>
 
       </div>
 
-    </Card>
+    </motion.section>
 
   );
 

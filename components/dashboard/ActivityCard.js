@@ -1,5 +1,9 @@
-// کارت نمایش فعالیت روزانه
-// نسخه جدید با طراحی هماهنگ با Design System پروژه
+"use client";
+
+// کارت نمایش Activity
+// Premium Design + Motion Version
+
+import { motion } from "framer-motion";
 
 import {
   Clock3,
@@ -7,7 +11,6 @@ import {
   Circle,
   ArrowUpRight,
 } from "lucide-react";
-import Card from "../ui/Card";
 
 const statusConfig = {
 
@@ -22,6 +25,8 @@ const statusConfig = {
       "text-emerald-600",
 
   },
+
+
 
   Pending: {
 
@@ -48,26 +53,80 @@ export default function ActivityCard({
 }) {
 
   const currentStatus =
-    statusConfig[status] || statusConfig.Pending;
+    statusConfig[status] ||
+    statusConfig.Pending;
 
-  const StatusIcon = currentStatus.icon;
+  const StatusIcon =
+    currentStatus.icon;
 
   return (
 
-    <Card
-  className="group"
->
+    <motion.div
+
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+
+      whileHover={{
+        y: -6,
+      }}
+
+      transition={{
+        duration: .35,
+      }}
+
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-[28px]
+        border
+        border-white/60
+        bg-white/70
+        p-6
+        backdrop-blur-xl
+        shadow-[0_12px_35px_rgba(0,0,0,.05)]
+      "
+
+    >
+
+      {/* Background Glow */}
+
+      <div
+        className="
+          absolute
+          -right-12
+          -top-12
+          h-36
+          w-36
+          rounded-full
+          bg-violet-100/40
+          blur-3xl
+          transition
+          duration-500
+          group-hover:scale-150
+        "
+      />
+
+
 
       {/* Header */}
 
-      <div className="flex items-start justify-between">
+      <div className="relative flex items-start justify-between">
 
         <div>
 
           <h3
             className="
-              text-lg
+              text-xl
               font-semibold
+              tracking-tight
               text-[#2C2825]
             "
           >
@@ -76,22 +135,35 @@ export default function ActivityCard({
 
           </h3>
 
+
+
           <div
             className="
-              mt-4
-              flex
+              mt-5
+              inline-flex
               items-center
               gap-2
-              text-sm
-              text-[#7D746D]
+              rounded-xl
+              bg-[#F7F3EE]
+              px-3
+              py-2
             "
           >
 
-            <Clock3 size={16} />
+            <Clock3
+              size={16}
+              className="text-[#8C837B]"
+            />
 
-            <span>
+            <span
+              className="
+                text-sm
+                font-medium
+                text-[#6E655E]
+              "
+            >
 
-              {duration}
+              {duration} min
 
             </span>
 
@@ -101,41 +173,59 @@ export default function ActivityCard({
 
 
 
-        <span
+
+
+        <motion.div
+
+          whileHover={{
+            scale: 1.08,
+          }}
+
           className={`
             inline-flex
             items-center
             gap-2
             rounded-full
-            px-3
-            py-1.5
+            px-4
+            py-2
             text-xs
-            font-medium
+            font-semibold
             ${currentStatus.badgeClass}
           `}
+
         >
 
           <StatusIcon
-            size={14}
-            className={currentStatus.iconClass}
+
+            size={15}
+
+            className={
+              currentStatus.iconClass
+            }
+
           />
 
           {status}
 
-        </span>
+        </motion.div>
 
       </div>
 
 
 
+
+
+      {/* Footer */}
+
       <div
         className="
-          mt-6
+          relative
+          mt-7
           flex
           items-center
           justify-between
           border-t
-          border-[#EFE8DE]
+          border-[#EEE6DB]
           pt-5
         "
       >
@@ -143,28 +233,41 @@ export default function ActivityCard({
         <p
           className="
             text-sm
+            leading-6
             text-[#7D746D]
           "
         >
 
-          Keep building consistency.
+          Keep building consistency every day.
 
         </p>
 
-        <ArrowUpRight
-          size={18}
-          className="
-            text-[#B7AEA4]
-            transition-transform
-            duration-300
-            group-hover:translate-x-1
-            group-hover:-translate-y-1
-          "
-        />
+
+
+        <motion.div
+
+          whileHover={{
+            x: 4,
+            y: -4,
+          }}
+
+        >
+
+          <ArrowUpRight
+
+            size={18}
+
+            className="
+              text-[#B7AEA4]
+            "
+
+          />
+
+        </motion.div>
 
       </div>
 
-      </Card>
+    </motion.div>
 
   );
 

@@ -1,12 +1,19 @@
-// خلاصه عملکرد روزانه
-// نمایش وضعیت کلی و تحلیل کوتاه AI
+"use client";
+
+// Daily Summary
+// Premium Version
+
+import { motion } from "framer-motion";
 
 import {
-  CheckCircle2,
+
   Sparkles,
+
+  CheckCircle2,
+
   TrendingUp,
+
 } from "lucide-react";
-import Card from "../ui/Card";
 
 export default function DailySummary({
 
@@ -18,125 +25,108 @@ export default function DailySummary({
 
   return (
 
-    <Card
-  className="
-    bg-gradient-to-br
-    from-[#FFFDF9]/90
-    to-[#F6F2EB]/90
-    p-8
-  "
->
+    <motion.section
 
-      {/* Header */}
+      initial={{
+        opacity: 0,
+        y: 25,
+      }}
 
-      <div className="flex items-center justify-between">
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
 
-        <div>
+      transition={{
+        duration: .45,
+      }}
 
-          <p
-            className="
-              text-sm
-              text-[#7D746D]
-            "
-          >
+      className="
+        relative
+        overflow-hidden
+        rounded-[30px]
+        border
+        border-white/60
+        bg-white/70
+        p-7
+        backdrop-blur-xl
+        shadow-[0_14px_40px_rgba(0,0,0,.05)]
+      "
 
-            Daily Overview
+    >
 
-          </p>
-
-          <h2
-            className="
-              mt-2
-              text-2xl
-              font-semibold
-              text-[#2C2825]
-            "
-          >
-
-            Today's Summary
-
-          </h2>
-
-        </div>
-
-
-
-        <div
-          className="
-            flex
-            h-14
-            w-14
-            items-center
-            justify-center
-            rounded-2xl
-            bg-[#EEEAFE]
-            text-[#7C6CF2]
-          "
-        >
-
-          <Sparkles size={24} />
-
-        </div>
-
-      </div>
-
-
-
-
-
-      {/* Statistics */}
+      {/* Glow */}
 
       <div
         className="
-          mt-8
-          grid
-          gap-5
-          md:grid-cols-2
+          absolute
+          -right-20
+          -top-20
+          h-56
+          w-56
+          rounded-full
+          bg-violet-100/40
+          blur-3xl
         "
-      >
+      />
 
-        <div
-          className="
-            rounded-3xl
-            bg-[#FFFDF9]
-            p-5
-            border
-            border-[#E7DED2]
-          "
-        >
 
-          <div className="flex items-center gap-3">
 
-            <CheckCircle2
-              size={22}
-              className="text-emerald-600"
-            />
+      <div className="relative">
 
-            <span
+        <div className="flex items-center justify-between">
+
+          <div>
+
+            <p
               className="
                 text-sm
-                text-[#7D746D]
+                font-medium
+                text-[#8B8179]
               "
             >
 
-              Completed Activities
+              Daily Overview
 
-            </span>
+            </p>
+
+
+
+            <h2
+              className="
+                mt-2
+                text-2xl
+                font-bold
+                text-[#2C2825]
+              "
+            >
+
+              Today's Summary
+
+            </h2>
 
           </div>
 
-          <p
+
+
+
+
+          <div
             className="
-              mt-4
-              text-4xl
-              font-semibold
-              text-[#2C2825]
+              flex
+              h-14
+              w-14
+              items-center
+              justify-center
+              rounded-2xl
+              bg-violet-100
+              text-violet-600
             "
           >
 
-            {completedActivities}
+            <Sparkles size={24} />
 
-          </p>
+          </div>
 
         </div>
 
@@ -146,52 +136,113 @@ export default function DailySummary({
 
         <div
           className="
-            rounded-3xl
-            bg-[#FFFDF9]
-            p-5
-            border
-            border-[#E7DED2]
+            mt-8
+            space-y-5
           "
         >
 
-          <div className="flex items-center gap-3">
+          <div
+            className="
+              flex
+              items-center
+              justify-between
+              rounded-2xl
+              bg-[#F8F4EF]
+              p-5
+            "
+          >
 
-            <TrendingUp
-              size={22}
-              className="text-emerald-600"
-            />
+            <div className="flex items-center gap-3">
+
+              <CheckCircle2
+                className="text-emerald-600"
+              />
+
+              <span
+                className="
+                  text-sm
+                  text-[#6E655E]
+                "
+              >
+
+                Completed Activities
+
+              </span>
+
+            </div>
+
+
 
             <span
               className="
-                text-sm
-                text-[#7D746D]
+                text-3xl
+                font-bold
+                text-[#2C2825]
               "
             >
 
-              AI Recommendation
+              {completedActivities}
 
             </span>
 
           </div>
 
-          <p
+
+
+
+
+          <div
             className="
-              mt-4
-              text-sm
-              leading-7
-              text-[#7D746D]
+              rounded-2xl
+              bg-gradient-to-r
+              from-violet-50
+              to-indigo-50
+              p-5
             "
           >
 
-            {message}
+            <div className="flex items-center gap-3">
 
-          </p>
+              <TrendingUp
+                className="text-violet-600"
+              />
+
+              <span
+                className="
+                  text-sm
+                  font-semibold
+                  text-[#2C2825]
+                "
+              >
+
+                AI Recommendation
+
+              </span>
+
+            </div>
+
+
+
+            <p
+              className="
+                mt-4
+                text-sm
+                leading-7
+                text-[#6E655E]
+              "
+            >
+
+              {message}
+
+            </p>
+
+          </div>
 
         </div>
 
       </div>
 
-      </Card>
+    </motion.section>
 
   );
 
