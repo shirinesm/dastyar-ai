@@ -1,46 +1,74 @@
-// Component عمومی Button
-// تمام دکمه‌های پروژه از این Component استفاده می‌کنند.
-// هدف: یکپارچه‌سازی ظاهر و رفتار دکمه‌ها
+// Button عمومی پروژه
+// استفاده در کل Dashboard
 
 export default function Button({
-    children,
-    type = "button",
-    variant = "primary",
-    onClick,
-    disabled = false,
-  }) {
-  
-    const variants = {
-      primary:
-        "bg-indigo-600 text-white hover:bg-indigo-700",
-  
-      secondary:
-        "bg-gray-100 text-gray-700 hover:bg-gray-200",
-  
-      danger:
-        "bg-red-500 text-white hover:bg-red-600",
-    };
-  
-  
-    return (
-      <button
-        type={type}
-        onClick={onClick}
-        disabled={disabled}
-        className={`
-          rounded-xl
-          px-5
-          py-3
-          text-sm
-          font-medium
-          transition
-          duration-200
-          disabled:cursor-not-allowed
-          disabled:opacity-50
-          ${variants[variant]}
-        `}
-      >
-        {children}
-      </button>
-    );
-  }
+
+  children,
+
+  type = "button",
+
+  variant = "primary",
+
+  onClick,
+
+  disabled = false,
+
+}) {
+
+  const variants = {
+
+    primary: `
+      bg-[#7C6CF2]
+      text-white
+      hover:bg-[#6C5CF0]
+    `,
+
+    secondary: `
+      bg-[#F3EBDD]
+      text-[#2C2825]
+      hover:bg-[#E9E0D3]
+    `,
+
+    danger: `
+      bg-[#EF4444]
+      text-white
+      hover:bg-[#DC2626]
+    `,
+
+  };
+
+  return (
+
+    <button
+
+      type={type}
+
+      onClick={onClick}
+
+      disabled={disabled}
+
+      className={`
+        h-12
+        w-full
+        rounded-2xl
+        font-medium
+        text-sm
+        transition-all
+        duration-300
+        hover:-translate-y-0.5
+        hover:shadow-md
+        active:translate-y-0
+        disabled:cursor-not-allowed
+        disabled:opacity-50
+        ${variants[variant]}
+      `}
+
+    >
+
+      {children}
+
+    </button>
+
+  );
+
+}

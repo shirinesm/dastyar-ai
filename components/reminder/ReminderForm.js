@@ -1,34 +1,22 @@
-// فرم ایجاد Reminder
-// در نسخه Demo فقط State فرم را مدیریت می‌کند.
-// ذخیره اطلاعات از طریق Reminder Context انجام می‌شود.
-// در آینده به Reminder API متصل خواهد شد.
-
-
 "use client";
-
 
 import { useState } from "react";
 
+import {
+  Bell,
+  Clock3,
+} from "lucide-react";
 
 import Button from "../ui/Button";
 import Input from "../ui/Input";
 
-
 import useReminders from "../../hooks/useReminders";
 
-
-
 export default function ReminderForm() {
-
-
 
   const {
     addReminder,
   } = useReminders();
-
-
-
-
 
   const [reminder, setReminder] = useState({
 
@@ -38,22 +26,12 @@ export default function ReminderForm() {
 
   });
 
-
-
-
-
-
-
-  // مدیریت تغییر Input ها
   const handleChange = (event) => {
-
 
     const {
       name,
       value,
     } = event.target;
-
-
 
     setReminder((previous) => ({
 
@@ -63,32 +41,17 @@ export default function ReminderForm() {
 
     }));
 
-
   };
 
-
-
-
-
-
-
-  // ثبت Reminder
   const handleSubmit = (event) => {
 
-
     event.preventDefault();
-
-
 
     if (!reminder.title || !reminder.time) {
 
       return;
 
     }
-
-
-
-
 
     addReminder({
 
@@ -100,11 +63,6 @@ export default function ReminderForm() {
 
     });
 
-
-
-
-
-
     setReminder({
 
       title: "",
@@ -113,107 +71,86 @@ export default function ReminderForm() {
 
     });
 
-
   };
-
-
-
-
-
-
 
   return (
 
     <form
-
       onSubmit={handleSubmit}
-
       className="
-        rounded-3xl
+        rounded-[28px]
         border
         border-[#E7DED2]
-        bg-[#FFFCF7]
-        p-6
+        bg-[#FFFDF9]
+        p-7
         flex
         flex-col
-        gap-5
+        gap-6
       "
-
     >
 
+      <div className="flex items-center gap-4">
 
+        <div
+          className="
+            flex
+            h-12
+            w-12
+            items-center
+            justify-center
+            rounded-2xl
+            bg-[#EEEAFE]
+            text-[#7C6CF2]
+          "
+        >
 
-      <div>
+          <Bell size={22} />
 
+        </div>
 
-        <h2 className="text-lg font-semibold text-[#292524]">
+        <div>
 
-          Create Reminder
+          <h2 className="text-xl font-semibold text-[#2C2825]">
+            Create Reminder
+          </h2>
 
-        </h2>
+          <p className="mt-1 text-sm text-[#7D746D]">
+            Never miss an important task.
+          </p>
 
-
-
-        <p className="mt-1 text-sm text-[#78716C]">
-
-          Never miss an important activity.
-
-        </p>
-
+        </div>
 
       </div>
 
-
-
-
-
-
       <Input
-
-        label="Reminder Title"
-
+        label="Reminder"
         name="title"
-
-        placeholder="Example: Read book"
-
+        placeholder="Workout"
         value={reminder.title}
-
         onChange={handleChange}
-
       />
-
-
-
-
-
 
       <Input
-
-        label="Reminder Time"
-
+        label="Time"
         name="time"
-
-        placeholder="Example: 18:00"
-
+        placeholder="20:00"
         value={reminder.time}
-
         onChange={handleChange}
-
       />
 
+      <div className="flex items-center gap-2 text-sm text-[#7D746D]">
 
+        <Clock3 size={16} />
 
+        Your reminders will appear below.
 
-
+      </div>
 
       <Button type="submit">
 
         Save Reminder
 
       </Button>
-
-
-
 
     </form>
 

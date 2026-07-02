@@ -1,54 +1,155 @@
 // Component اصلی نوار بالایی اپلیکیشن
-// مسئول نمایش برند، اطلاعات کاربر و منوی موبایل است
+// مسئول نمایش برند، وضعیت کاربر و منوی موبایل است.
+
+import {
+  Sparkles,
+} from "lucide-react";
 
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
+
   return (
-    <header className="flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4">
 
-      {/* بخش برند */}
-      <div className="flex items-center gap-2">
+    <header
+      className="
+        sticky
+        top-0
+        z-50
+        flex
+        items-center
+        justify-between
+        border-b
+        border-[#E7DED2]
+        bg-[#FFFCF7]/90
+        px-6
+        py-4
+        backdrop-blur-md
+      "
+    >
 
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 font-bold text-white">
-          D
+      {/* برند */}
+      <div className="flex items-center gap-3">
+
+
+        <div
+          className="
+            flex
+            h-11
+            w-11
+            items-center
+            justify-center
+            rounded-2xl
+            bg-[#7C6CF2]
+            text-white
+            shadow-sm
+          "
+        >
+
+          <Sparkles size={20} />
+
         </div>
 
-        <h1 className="text-xl font-semibold text-gray-900">
-          Dastyar
-        </h1>
+
+
+        <div>
+
+          <h1
+            className="
+              text-lg
+              font-semibold
+              tracking-tight
+              text-[#2C2825]
+            "
+          >
+            Dastyar
+          </h1>
+
+
+          <p
+            className="
+              text-xs
+              text-[#7D746D]
+            "
+          >
+            AI Productivity Assistant
+          </p>
+
+        </div>
 
       </div>
 
 
-      {/* بخش سمت راست Navbar */}
+
+
+
+      {/* سمت راست Navbar */}
       <div className="flex items-center gap-4">
 
-        {/* منوی موبایل - فقط در اندازه موبایل نمایش داده می‌شود */}
+
+        {/* فقط موبایل */}
         <MobileMenu />
 
 
-        {/* اطلاعات کاربر */}
-        <div className="hidden text-right sm:block">
+        {/* متن خوش‌آمد */}
+        <div className="hidden text-right lg:block">
 
-          <p className="text-sm font-medium text-gray-900">
+          <p
+            className="
+              text-sm
+              font-medium
+              text-[#2C2825]
+            "
+          >
             Welcome back
           </p>
 
-          <p className="text-xs text-gray-500">
-            Stay productive today
+
+          <p
+            className="
+              text-xs
+              text-[#7D746D]
+            "
+          >
+            Build consistency today.
           </p>
 
         </div>
 
 
-        {/* پروفایل کاربر - نسخه Demo */}
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-sm font-medium text-gray-700">
+
+
+
+        {/* Avatar */}
+        <button
+          className="
+            flex
+            h-11
+            w-11
+            items-center
+            justify-center
+            rounded-2xl
+            border
+            border-[#E7DED2]
+            bg-[#F6F2EB]
+            font-semibold
+            text-[#2C2825]
+            transition-all
+            duration-200
+            hover:-translate-y-0.5
+            hover:border-[#7C6CF2]
+            hover:bg-white
+          "
+        >
+
           S
-        </div>
+
+        </button>
 
       </div>
 
     </header>
+
   );
+
 }

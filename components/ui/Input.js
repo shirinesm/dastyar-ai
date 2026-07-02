@@ -1,58 +1,88 @@
-// Component عمومی Input
-// برای تمام فیلدهای ورودی پروژه استفاده می‌شود.
-// هدف: یکپارچه‌سازی فرم‌ها و جلوگیری از تکرار کد UI
+// Input عمومی پروژه
+// طراحی شده بر اساس Design System Dastyar
 
 export default function Input({
-    type = "text",
-    placeholder = "",
-    value,
-    onChange,
-    label,
-    name,
-    disabled = false,
-  }) {
-    return (
-      <div className="flex flex-col gap-2">
-  
-        {/* عنوان فیلد */}
-        {label && (
-          <label
-            htmlFor={name}
-            className="text-sm font-medium text-gray-700"
-          >
-            {label}
-          </label>
-        )}
-  
-  
-        {/* ورودی اصلی */}
-        <input
-          id={name}
-          name={name}
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          disabled={disabled}
+
+  type = "text",
+
+  placeholder = "",
+
+  value,
+
+  onChange,
+
+  label,
+
+  name,
+
+  disabled = false,
+
+}) {
+
+  return (
+
+    <div className="flex flex-col gap-2">
+
+      {label && (
+
+        <label
+
+          htmlFor={name}
+
           className="
-            rounded-xl
-            border
-            border-gray-200
-            bg-white
-            px-4
-            py-3
             text-sm
-            text-gray-900
-            outline-none
-            transition
-            focus:border-indigo-500
-            focus:ring-2
-            focus:ring-indigo-100
-            disabled:cursor-not-allowed
-            disabled:bg-gray-100
+            font-medium
+            text-[#4E463F]
           "
-        />
-  
-      </div>
-    );
-  }
+
+        >
+
+          {label}
+
+        </label>
+
+      )}
+
+      <input
+
+        id={name}
+
+        name={name}
+
+        type={type}
+
+        placeholder={placeholder}
+
+        value={value}
+
+        onChange={onChange}
+
+        disabled={disabled}
+
+        className="
+          h-12
+          rounded-2xl
+          border
+          border-[#E7DED2]
+          bg-[#FFFDF9]
+          px-4
+          text-[15px]
+          text-[#2C2825]
+          placeholder:text-[#A59C94]
+          outline-none
+          transition-all
+          duration-200
+          focus:border-[#7C6CF2]
+          focus:ring-4
+          focus:ring-[#EEEAFE]
+          disabled:cursor-not-allowed
+          disabled:opacity-50
+        "
+
+      />
+
+    </div>
+
+  );
+
+}

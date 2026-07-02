@@ -1,73 +1,71 @@
 // Component اصلی Dashboard
-// مسئول نمایش نمای کلی وضعیت کاربر، فعالیت‌ها و خلاصه روزانه است.
-// این بخش فقط Layout و Composition را مدیریت می‌کند.
-// منطق داده‌ها در Hook و Context نگهداری خواهد شد.
-
+// مسئول نمایش Layout کلی Dashboard است.
 
 import ScoreCard from "./ScoreCard";
-import DailySummary from "./DailySummary";
-
-import ActivityForm from "../activity/ActivityForm";
-import ActivityList from "../activity/ActivityList";
-
 import HeroSection from "./HeroSection";
+import DailySummary from "./DailySummary";
 import AIAssistantCard from "./AIAssistantCard";
+
+import ActivityList from "../activity/ActivityList";
+import ActivityForm from "../activity/ActivityForm";
 
 import ReminderForm from "../reminder/ReminderForm";
 import ReminderList from "../reminder/ReminderList";
 
-
-
-
 export default function Dashboard() {
-
 
   return (
 
-
     <main
       className="
-        min-h-full
+        min-h-screen
         bg-[#FAF7F2]
-        p-6
-        md:p-8
+        px-6
+        py-8
+        lg:px-10
       "
     >
 
+      {/* Hero */}
 
-
-      {/* بخش معرفی روز */}
       <HeroSection />
 
 
 
+      {/* Score Cards */}
 
-
-
-      {/* وضعیت کلی عملکرد */}
-      <section className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
-
+      <section
+        className="
+          mt-7
+          grid
+          gap-5
+          lg:grid-cols-3
+        "
+      >
 
         <ScoreCard
           title="Daily Progress"
           value="85%"
-          description="Great productivity today"
+          description="Great productivity today."
+          progress={85}
+          variant="progress"
         />
-
 
         <ScoreCard
           title="Focus Level"
           value="75%"
-          description="Your focus is improving"
+          description="Your focus is improving."
+          progress={75}
+          variant="focus"
         />
-
 
         <ScoreCard
           title="AI Value Score"
           value="90%"
-          description="High value activities completed"
+          description="High value activities completed."
+          progress={90}
+          variant="ai"
         />
-
 
       </section>
 
@@ -75,148 +73,125 @@ export default function Dashboard() {
 
 
 
+      {/* Main Dashboard */}
+
+      <section
+        className="
+          mt-8
+          grid
+          gap-6
+          xl:grid-cols-12
+        "
+      >
+
+        {/* ستون چپ */}
+
+        <div
+          className="
+            xl:col-span-8
+            space-y-6
+          "
+        >
+
+          {/* Activities */}
+
+          <section>
+
+            <div className="mb-5">
+
+              <h2 className="text-xl font-semibold text-[#2C2825]">
+
+                Today's Activities
+
+              </h2>
+
+              <p className="mt-1 text-sm text-[#7D746D]">
+
+                Track everything you've completed today.
+
+              </p>
+
+            </div>
+
+            <ActivityList />
+
+          </section>
 
 
-      {/* فعالیت‌های امروز */}
-      <section className="mt-8">
 
 
-        <div className="mb-4">
 
+          {/* پایین ستون چپ */}
 
-          <h2 className="text-xl font-semibold text-[#292524]">
-            Today's Activities
-          </h2>
+          <div
+            className="
+              grid
+              gap-6
+              lg:grid-cols-2
+            "
+          >
 
+            <ActivityForm />
 
-          <p className="mt-1 text-sm text-[#78716C]">
-            Your completed tasks and progress
-          </p>
+            <ReminderForm />
 
+          </div>
 
         </div>
 
 
 
-        <ActivityList />
-
-
-      </section>
 
 
 
 
+        {/* ستون راست */}
 
+        <div
+          className="
+            xl:col-span-4
+            space-y-6
+          "
+        >
 
+          <AIAssistantCard />
 
+          <section>
 
-      {/* ثبت فعالیت جدید */}
-      <section className="mt-8">
+            <div className="mb-5">
 
+              <h2 className="text-xl font-semibold text-[#2C2825]">
 
-        <div className="mb-4">
+                Reminders
 
+              </h2>
 
-          <h2 className="text-xl font-semibold text-[#292524]">
-            Quick Add
-          </h2>
+              <p className="mt-1 text-sm text-[#7D746D]">
 
+                Stay ahead of your schedule.
 
-          <p className="mt-1 text-sm text-[#78716C]">
-            Add your activity and keep your progress updated.
-          </p>
+              </p>
 
+            </div>
+
+            <ReminderList />
+
+          </section>
+
+          <DailySummary
+
+            completedActivities={2}
+
+            message="Your day was productive. Keep maintaining this routine."
+
+          />
 
         </div>
 
-
-
-        <ActivityForm />
-
-
       </section>
-
-
-
-
-
-
-
-
-      {/* دستیار هوشمند */}
-      <section className="mt-8">
-
-
-        <AIAssistantCard />
-
-
-      </section>
-
-
-
-
-
-
-
-
-      {/* Reminder */}
-
-<section className="mt-8">
-
-
-<div className="mb-4">
-
-
-  <h2 className="text-xl font-semibold text-[#292524]">
-    Reminders
-  </h2>
-
-
-  <p className="mt-1 text-sm text-[#78716C]">
-    Keep track of your important tasks.
-  </p>
-
-
-</div>
-
-
-
-<ReminderForm />
-
-
-<ReminderList />
-
-
-</section>
-
-
-
-
-
-
-
-      {/* خلاصه روز */}
-      <section className="mt-8">
-
-
-        <DailySummary
-
-          completedActivities={2}
-
-          message="Your day was productive. Keep maintaining this routine."
-
-        />
-
-
-      </section>
-
-
-
 
     </main>
 
-
   );
-
 
 }
