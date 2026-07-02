@@ -2,27 +2,106 @@
 
 :root {
 
-  --background: #FAF7F2;
+  --background: #F7F3EE;
+  --foreground: #2C2825;
 
-  --foreground: #292524;
+  --surface: rgba(255,255,255,.72);
+
+  --border: rgba(219,210,198,.65);
+
+  --purple-glow: rgba(152,135,255,.10);
+
+  --cream-glow: rgba(255,247,236,.75);
 
 }
+
 @theme inline {
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
 }
 
 body {
-  background: var(--background);
+
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      var(--purple-glow),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(255,255,255,.65),
+      transparent 26%
+    ),
+
+    radial-gradient(
+      circle at 80% 85%,
+      rgba(170,155,255,.06),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      180deg,
+      #FCFAF6 0%,
+      #F8F4EE 40%,
+      #F4EEE8 100%
+    );
+
+}
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .20;
+
+  background-image:
+
+    radial-gradient(
+      rgba(255,255,255,.45) 1px,
+      transparent 1px
+    );
+
+  background-size: 26px 26px;
+
+}
+
+::selection {
+
+  background: rgba(124,108,242,.18);
+
 }

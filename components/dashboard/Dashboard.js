@@ -17,14 +17,63 @@ export default function Dashboard() {
   return (
 
     <main
-      className="
-        min-h-screen
-        bg-[#FAF7F2]
-        px-6
-        py-8
-        lg:px-10
-      "
-    >
+    className="
+      relative
+      min-h-screen
+      overflow-hidden
+      px-6
+      py-10
+      lg:px-10
+    "
+  >
+    <div
+  className="
+    absolute
+    left-[-180px]
+    top-[-120px]
+    h-[520px]
+    w-[520px]
+    rounded-full
+    bg-violet-300/10
+    blur-[120px]
+  "
+/>
+
+<div
+  className="
+    absolute
+    right-[-220px]
+    top-[220px]
+    h-[480px]
+    w-[480px]
+    rounded-full
+    bg-fuchsia-200/10
+    blur-[140px]
+  "
+/>
+
+<div
+  className="
+    absolute
+    bottom-[-180px]
+    left-1/2
+    h-[500px]
+    w-[500px]
+    -translate-x-1/2
+    rounded-full
+    bg-indigo-200/10
+    blur-[150px]
+  "
+/>
+
+<div
+  className="
+    relative
+    z-10
+    mx-auto
+    max-w-[1450px]
+  "
+>
 
       {/* Hero */}
 
@@ -189,7 +238,7 @@ export default function Dashboard() {
         </div>
 
       </section>
-
+      </div>
     </main>
 
   );
