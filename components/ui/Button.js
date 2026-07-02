@@ -1,39 +1,43 @@
-// Button عمومی پروژه
-// استفاده در کل Dashboard
+// Component عمومی Button
+// Premium Design System
 
 export default function Button({
-
   children,
-
   type = "button",
-
   variant = "primary",
-
   onClick,
-
   disabled = false,
-
 }) {
 
   const variants = {
 
-    primary: `
-      bg-[#7C6CF2]
+    primary:
+      `
+      bg-gradient-to-r
+      from-[#8D7EF8]
+      to-[#7262EE]
       text-white
-      hover:bg-[#6C5CF0]
-    `,
+      shadow-lg
+      shadow-violet-200
+      hover:-translate-y-1
+      hover:shadow-xl
+      `,
 
-    secondary: `
-      bg-[#F3EBDD]
-      text-[#2C2825]
-      hover:bg-[#E9E0D3]
-    `,
+    secondary:
+      `
+      bg-[#F8F4EF]
+      text-[#5F5750]
+      border
+      border-[#E7DED2]
+      hover:bg-white
+      `,
 
-    danger: `
-      bg-[#EF4444]
+    danger:
+      `
+      bg-red-500
       text-white
-      hover:bg-[#DC2626]
-    `,
+      hover:bg-red-600
+      `,
 
   };
 
@@ -48,16 +52,13 @@ export default function Button({
       disabled={disabled}
 
       className={`
-        h-12
-        w-full
+        h-14
         rounded-2xl
-        font-medium
+        px-6
         text-sm
+        font-semibold
         transition-all
         duration-300
-        hover:-translate-y-0.5
-        hover:shadow-md
-        active:translate-y-0
         disabled:cursor-not-allowed
         disabled:opacity-50
         ${variants[variant]}

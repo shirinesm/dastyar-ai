@@ -1,5 +1,5 @@
 // Input عمومی پروژه
-// طراحی شده بر اساس Design System Dastyar
+// Premium Design System
 
 export default function Input({
 
@@ -21,20 +21,17 @@ export default function Input({
 
   return (
 
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-3">
 
       {label && (
 
         <label
-
           htmlFor={name}
-
           className="
             text-sm
             font-medium
-            text-[#4E463F]
+            text-[#5F5750]
           "
-
         >
 
           {label}
@@ -60,23 +57,28 @@ export default function Input({
         disabled={disabled}
 
         className="
-          h-12
+          h-14
           rounded-2xl
           border
-          border-[#E7DED2]
-          bg-[#FFFDF9]
-          px-4
+          border-[#E6DDD2]
+          bg-[#FFFEFC]
+          px-5
           text-[15px]
           text-[#2C2825]
-          placeholder:text-[#A59C94]
           outline-none
           transition-all
-          duration-200
-          focus:border-[#7C6CF2]
+          duration-300
+
+          placeholder:text-[#B2AAA2]
+
+          hover:border-[#D8CDC1]
+
+          focus:border-[#8D7EF8]
           focus:ring-4
-          focus:ring-[#EEEAFE]
-          disabled:cursor-not-allowed
-          disabled:opacity-50
+          focus:ring-violet-100
+
+          disabled:bg-[#F2EFEA]
+          disabled:opacity-70
         "
 
       />

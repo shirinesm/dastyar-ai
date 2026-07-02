@@ -1,45 +1,29 @@
 "use client";
 
 import { useState } from "react";
-
-import {
-  Bell,
-  Clock3,
-} from "lucide-react";
+import { BellRing } from "lucide-react";
 
 import Button from "../ui/Button";
 import Input from "../ui/Input";
 
 import useReminders from "../../hooks/useReminders";
-import Card from "../ui/Card";
 
 export default function ReminderForm() {
 
-  const {
-    addReminder,
-  } = useReminders();
+  const { addReminder } = useReminders();
 
   const [reminder, setReminder] = useState({
-
     title: "",
-
     time: "",
-
   });
 
   const handleChange = (event) => {
 
-    const {
-      name,
-      value,
-    } = event.target;
+    const { name, value } = event.target;
 
     setReminder((previous) => ({
-
       ...previous,
-
       [name]: value,
-
     }));
 
   };
@@ -49,45 +33,36 @@ export default function ReminderForm() {
     event.preventDefault();
 
     if (!reminder.title || !reminder.time) {
-
       return;
-
     }
 
     addReminder({
-
       id: Date.now(),
-
       title: reminder.title,
-
       time: reminder.time,
-
     });
 
     setReminder({
-
       title: "",
-
       time: "",
-
     });
 
   };
 
   return (
 
-    <Card>
-
-    <form
-      onSubmit={handleSubmit}
+    <section
       className="
-        flex
-        flex-col
-        gap-6
+        rounded-[30px]
+        border
+        border-[#E7DED2]
+        bg-white/70
+        p-7
+        backdrop-blur-xl
       "
     >
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
 
         <div
           className="
@@ -97,62 +72,62 @@ export default function ReminderForm() {
             items-center
             justify-center
             rounded-2xl
-            bg-[#EEEAFE]
-            text-[#7C6CF2]
+            bg-violet-100
           "
         >
 
-          <Bell size={22} />
+          <BellRing className="text-[#7C6CF2]" />
 
         </div>
 
         <div>
 
-          <h2 className="text-xl font-semibold text-[#2C2825]">
+          <h2 className="text-xl font-semibold">
+
             Create Reminder
+
           </h2>
 
-          <p className="mt-1 text-sm text-[#7D746D]">
-            Never miss an important task.
+          <p className="text-sm text-[#7D746D]">
+
+            Never miss important tasks.
+
           </p>
 
         </div>
 
       </div>
 
-      <Input
-        label="Reminder"
-        name="title"
-        placeholder="Workout"
-        value={reminder.title}
-        onChange={handleChange}
-      />
+      <form
+        onSubmit={handleSubmit}
+        className="mt-8 space-y-5"
+      >
 
-      <Input
-        label="Time"
-        name="time"
-        placeholder="20:00"
-        value={reminder.time}
-        onChange={handleChange}
-      />
+        <Input
+          label="Reminder"
+          name="title"
+          value={reminder.title}
+          onChange={handleChange}
+          placeholder="Read book"
+        />
 
-      <div className="flex items-center gap-2 text-sm text-[#7D746D]">
+        <Input
+          label="Time"
+          name="time"
+          value={reminder.time}
+          onChange={handleChange}
+          placeholder="20:00"
+        />
 
-        <Clock3 size={16} />
+        <Button type="submit">
 
-        Your reminders will appear below.
+          Save Reminder
 
-      </div>
-
-      <Button type="submit">
-
-        Save Reminder
-
-      </Button>
+        </Button>
 
       </form>
 
-</Card>
+    </section>
 
   );
 
