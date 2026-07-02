@@ -7,6 +7,7 @@ import {
   Sparkles,
   ArrowUpRight,
 } from "lucide-react";
+import Card from "../ui/Card";
 
 const variants = {
 
@@ -68,21 +69,9 @@ export default function ScoreCard({
 
   return (
 
-    <div
-      className="
-        group
-        rounded-[26px]
-        border
-        border-[#E7DED2]
-        bg-[#FFFDF9]
-        p-6
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-[#D7CCBE]
-        hover:shadow-lg
-      "
-    >
+    <Card
+    className="group"
+  >
 
       {/* Header */}
       <div className="flex items-start justify-between">
@@ -200,7 +189,7 @@ export default function ScoreCard({
 
       </div>
 
-    </div>
+      </Card>
 
   );
 

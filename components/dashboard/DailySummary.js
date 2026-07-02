@@ -6,6 +6,7 @@ import {
   Sparkles,
   TrendingUp,
 } from "lucide-react";
+import Card from "../ui/Card";
 
 export default function DailySummary({
 
@@ -17,17 +18,14 @@ export default function DailySummary({
 
   return (
 
-    <section
-      className="
-        rounded-[28px]
-        border
-        border-[#E7DED2]
-        bg-gradient-to-br
-        from-[#FFFDF9]
-        to-[#F6F2EB]
-        p-8
-      "
-    >
+    <Card
+  className="
+    bg-gradient-to-br
+    from-[#FFFDF9]/90
+    to-[#F6F2EB]/90
+    p-8
+  "
+>
 
       {/* Header */}
 
@@ -193,7 +191,7 @@ export default function DailySummary({
 
       </div>
 
-    </section>
+      </Card>
 
   );
 

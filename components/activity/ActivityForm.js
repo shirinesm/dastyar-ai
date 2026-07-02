@@ -11,6 +11,7 @@ import Button from "../ui/Button";
 import Input from "../ui/Input";
 
 import useActivities from "../../hooks/useActivities";
+import Card from "../ui/Card";
 
 export default function ActivityForm() {
 
@@ -77,19 +78,16 @@ export default function ActivityForm() {
 
   return (
 
-    <form
-      onSubmit={handleSubmit}
-      className="
-        rounded-[28px]
-        border
-        border-[#E7DED2]
-        bg-[#FFFDF9]
-        p-7
-        flex
-        flex-col
-        gap-6
-      "
-    >
+    <Card>
+
+  <form
+    onSubmit={handleSubmit}
+    className="
+      flex
+      flex-col
+      gap-6
+    "
+  >
 
       <div className="flex items-center gap-4">
 
@@ -159,7 +157,9 @@ export default function ActivityForm() {
 
       </Button>
 
-    </form>
+      </form>
+
+</Card>
 
   );
 

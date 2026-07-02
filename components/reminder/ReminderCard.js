@@ -6,6 +6,7 @@ import {
   Clock3,
   ArrowUpRight,
 } from "lucide-react";
+import Card from "../ui/Card";
 
 export default function ReminderCard({
 
@@ -17,21 +18,9 @@ export default function ReminderCard({
 
   return (
 
-    <div
-      className="
-        group
-        rounded-[26px]
-        border
-        border-[#E7DED2]
-        bg-[#FFFDF9]
-        p-6
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-[#D7CCBE]
-        hover:shadow-lg
-      "
-    >
+    <Card
+  className="group"
+>
 
       {/* Header */}
 
@@ -137,7 +126,7 @@ export default function ReminderCard({
 
       </div>
 
-    </div>
+      </Card>
 
   );
 

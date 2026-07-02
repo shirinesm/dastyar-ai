@@ -3,24 +3,22 @@ import {
   Brain,
   ArrowRight,
 } from "lucide-react";
+import Card from "../ui/Card";
 
 export default function AIAssistantCard() {
 
   return (
 
-    <section
-      className="
-        overflow-hidden
-        rounded-[28px]
-        border
-        border-[#DCD1FF]
-        bg-gradient-to-br
-        from-[#F4F1FF]
-        via-[#F9F7FF]
-        to-[#EEEAFE]
-        p-7
-      "
-    >
+    <Card
+  className="
+    overflow-hidden
+    border-[#E5DDFE]
+    bg-gradient-to-br
+    from-[#F7F4FE]/90
+    via-[#FCFBFF]/90
+    to-[#F2EEFD]/90
+  "
+>
 
       <div className="flex items-center justify-between">
 
@@ -122,7 +120,7 @@ export default function AIAssistantCard() {
 
       </button>
 
-    </section>
+      </Card>
 
   );
 

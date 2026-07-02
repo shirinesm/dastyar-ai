@@ -11,6 +11,7 @@ import Button from "../ui/Button";
 import Input from "../ui/Input";
 
 import useReminders from "../../hooks/useReminders";
+import Card from "../ui/Card";
 
 export default function ReminderForm() {
 
@@ -75,14 +76,11 @@ export default function ReminderForm() {
 
   return (
 
+    <Card>
+
     <form
       onSubmit={handleSubmit}
       className="
-        rounded-[28px]
-        border
-        border-[#E7DED2]
-        bg-[#FFFDF9]
-        p-7
         flex
         flex-col
         gap-6
@@ -152,7 +150,9 @@ export default function ReminderForm() {
 
       </Button>
 
-    </form>
+      </form>
+
+</Card>
 
   );
 
