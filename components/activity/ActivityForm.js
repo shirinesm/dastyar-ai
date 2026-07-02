@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import Input from "../ui/Input";
 
 import useActivities from "../../hooks/useActivities";
+import { toast } from "sonner";
 
 export default function ActivityForm() {
 
@@ -42,7 +43,8 @@ export default function ActivityForm() {
       duration: activity.duration,
       status: "Completed",
     });
-
+    
+    toast.success("Activity added successfully.");
     setActivity({
       title: "",
       duration: "",

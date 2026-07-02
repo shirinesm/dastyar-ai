@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import Input from "../ui/Input";
 
 import useReminders from "../../hooks/useReminders";
+import { toast } from "sonner";
 
 export default function ReminderForm() {
 
@@ -41,7 +42,7 @@ export default function ReminderForm() {
       title: reminder.title,
       time: reminder.time,
     });
-
+    toast.success("Reminder created.");
     setReminder({
       title: "",
       time: "",

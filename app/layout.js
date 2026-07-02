@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ActivityProvider } from "../context/ActivityContext";
 import { ReminderProvider } from "../context/ReminderContext";
+import { Toaster } from "sonner";
 
 // تنظیم فونت اصلی پروژه
 const geistSans = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
     text-[#2C2825]
     overflow-x-hidden
   "
+  
 >
 
         
@@ -47,6 +49,12 @@ export default function RootLayout({ children }) {
         </ReminderProvider>
 
        </ActivityProvider>
+       <Toaster
+  position="top-right"
+  richColors
+  expand
+  closeButton
+/>
        
 
       </body>

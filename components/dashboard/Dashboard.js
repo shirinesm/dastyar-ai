@@ -85,7 +85,7 @@ export default function Dashboard() {
 
       <section
         className="
-          mt-7
+          mt-10
           grid
           gap-5
           lg:grid-cols-3
@@ -126,7 +126,7 @@ export default function Dashboard() {
 
       <section
         className="
-          mt-8
+          mt-10
           grid
           gap-6
           xl:grid-cols-12

@@ -23,7 +23,7 @@ export default function Card({
         duration-300
         ${
           hover
-            ? "hover:-translate-y-1 hover:shadow-[0_18px_55px_rgba(124,92,242,0.18)]"
+            ? "hover:-translate-y-2 hover:shadow-[0_18px_55px_rgba(124,92,242,0.18)]"
             : ""
         }
         ${className}

@@ -19,15 +19,18 @@ export default function HeroSection() {
       initial={{
         opacity: 0,
         y: 30,
+        scale: .8,
       }}
 
       animate={{
         opacity: 1,
         y: 0,
+        scale: 1,
       }}
 
       transition={{
         duration: 0.6,
+        delay: .2,
       }}
 
       className="

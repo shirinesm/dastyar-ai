@@ -79,6 +79,13 @@ export default function Input({
 
           disabled:bg-[#F2EFEA]
           disabled:opacity-70
+          focus:shadow-lg
+
+          focus:shadow-violet-100
+
+          transition-all
+
+          duration-300
         "
 
       />

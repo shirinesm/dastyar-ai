@@ -1,52 +1,86 @@
 // نمایش لیست فعالیت‌های کاربر
 // داده‌ها از Activity Context دریافت می‌شوند.
-// این Component فقط مسئول نمایش است و منطق داده ندارد.
-
 
 "use client";
 
+import { Activity } from "lucide-react";
 
 import ActivityCard from "../dashboard/ActivityCard";
 import useActivities from "../../hooks/useActivities";
 
-
-
 export default function ActivityList() {
 
-
   const {
-    activities
+    activities,
   } = useActivities();
 
-
-
-
   if (!activities || activities.length === 0) {
-
 
     return (
 
       <div
         className="
-          rounded-3xl
-          bg-[#FFFCF7]
-          p-6
-          text-sm
-          text-[#78716C]
+          rounded-[28px]
+          border
+          border-dashed
+          border-[#DDD5CB]
+          bg-white/70
+          p-10
+          text-center
+          backdrop-blur-xl
         "
       >
 
-        No activities yet.
+        <div
+          className="
+            mx-auto
+            mb-5
+            flex
+            h-16
+            w-16
+            items-center
+            justify-center
+            rounded-full
+            bg-violet-100
+          "
+        >
+
+          <Activity
+            size={28}
+            className="text-violet-600"
+          />
+
+        </div>
+
+        <h3
+          className="
+            text-lg
+            font-semibold
+            text-[#2C2825]
+          "
+        >
+
+          No activities yet
+
+        </h3>
+
+        <p
+          className="
+            mt-2
+            text-sm
+            text-[#8C837B]
+          "
+        >
+
+          Create your first activity to start tracking your productivity.
+
+        </p>
 
       </div>
 
     );
 
   }
-
-
-
-
 
   return (
 
@@ -59,25 +93,21 @@ export default function ActivityList() {
       "
     >
 
+      {activities.map((activity) => (
 
-      {
-        activities.map((activity) => (
+        <ActivityCard
 
-          <ActivityCard
+          key={activity.id}
 
-            key={activity.id}
+          title={activity.title}
 
-            title={activity.title}
+          duration={`${activity.duration} minutes`}
 
-            duration={`${activity.duration} minutes`}
+          status={activity.status}
 
-            status={activity.status}
+        />
 
-          />
-
-        ))
-      }
-
+      ))}
 
     </div>
 

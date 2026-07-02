@@ -100,8 +100,16 @@ body::before {
 
 }
 
-::selection {
+::selection{
 
-  background: rgba(124,108,242,.18);
-
-}
+  background:#8B7AF8;
+  
+  color:white;
+  
+  }
+  
+  html{
+  
+  scroll-behavior:smooth;
+  
+  }
